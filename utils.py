@@ -1,13 +1,20 @@
 # utils.py
+# utils.py
 from dotenv import load_dotenv
 import os
 import google.generativeai as genai
 
+# Load environment variables from .env file
 load_dotenv()
+
+# Get the API key from the environment
 API_KEY = os.getenv("GEMINI_API_KEY")
 
+# Configure the Gemini API client with your API key
 genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel("gemini-pro")
+
+model = genai.GenerativeModel("gemini-2.0-flash")  # Use the valid model name
+
 
 def evaluate_formula(title, formula):
     prompt = f"""
